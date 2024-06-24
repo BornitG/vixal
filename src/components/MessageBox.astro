@@ -1,0 +1,18 @@
+---
+
+type Props = {
+  messageContent: {
+    content: string,
+    sender?: boolean,
+  };
+};
+//   classStyle: "ml-auto mr-0"
+const { messageContent }: Props = Astro.props;
+const { content, sender } = messageContent;
+---
+
+<div 
+  class=`rounded max-w-2xl w-fit h-fit p-4 mt-4 ${ sender ? "ml-auto mr-0 bg-gray-700" : "bg-gray-900" }`
+>
+  { content }
+</div>

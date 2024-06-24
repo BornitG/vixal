@@ -1,0 +1,61 @@
+---
+import MessageBox from "../components/MessageBox.astro";
+import Layout from "../layouts/Layout.astro";
+
+const messageObject = [
+  {
+  content: "Hello There",
+  sender: true
+  },
+  {
+  content: "General Kenobi",
+  },
+  {
+  content: "Lorem ipsum dolor sit",
+  sender: true
+  },
+  {
+  content: "Lorem ipsum dolor sit",
+  },
+]
+---
+
+<Layout>
+  <div class="w-full h-full max-h-[calc(100vh-60px)] flex">
+    <!-- Sidebar -->
+    <div class="flex flex-col w-1/5 h-full bg-gray-900">
+      <div class="flex flex-col border border-gray-300 rounded p-4">
+        Sidebar Box 1
+      </div>
+      <div class="flex flex-col border border-gray-300 rounded p-4 mt-4">
+        Sidebar Box 2
+      </div>
+      <div class="flex flex-col border border-gray-300 rounded p-4 mt-4">
+        Sidebar Box 3
+      </div>
+    </div>
+
+    <!-- Chat -->
+    <div class="flex flex-col w-4/5 ml-0">
+      <div class="flex justify-end items-end p-4 bg-gray-800 h-full overflow-auto">
+        <div class="rounded w-full h-full mx-24">
+          <!-- Message Box -->
+           {
+             messageObject.map((message) => (
+               <MessageBox messageContent={ message } />
+             ))
+           }
+          <!-- <MessageBox content="Lorem ipsum dolor sit" classStyle="ml-auto mr-0"/> -->
+        </div>
+      </div>
+      <form class="flex justify-center items-center">
+        <input
+          type="text"
+          class="w-5/6 bg-gray-900 border border-gray-900 rounded-full p-4 my-4"
+          placeholder="Type a message..."
+        />
+      </form>
+    </div>
+  </div>
+</Layout>
+
